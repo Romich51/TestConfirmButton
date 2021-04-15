@@ -15,11 +15,11 @@ lat_slider = st.slider('lat', 40.0, 41.0, step=0.1)
 
 data_f = data
 
-# @cache_on_button_press('Submit')
-# def filter_data_by_lon(df, lon_value):
-#     return df[df['Lon'] <= -lon_value]
-#
-# data_f = filter_data_by_lon(data_f, lon_slider)
+@cache_on_button_press('Submit')
+def filter_data_by_lon(df, lon_value):
+     return df[df['Lon'] <= -lon_value]
+
+data_f = filter_data_by_lon(data_f, lon_slider)
 st.dataframe(data_f)
 
 
